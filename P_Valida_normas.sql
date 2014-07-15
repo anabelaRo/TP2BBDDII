@@ -60,6 +60,8 @@ ELSE IF (UPPER(@varTipoObjeto) = 'I')												/* INDICES */
 					from sys.indexes i
 					join sys.tables t
 					on i.object_id = t.object_id
+					and i.name not in (select name from sys.objects
+							   WHERE type in ('C', 'F', 'PK', 'UQ' ))
 		
 			DECLARE @listaindices TABLE(nindice nvarchar(max))
 			DECLARE @ntabla nvarchar(max)
