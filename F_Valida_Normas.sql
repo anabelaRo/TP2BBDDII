@@ -1,4 +1,4 @@
-﻿ALTER FUNCTION F_Valida_Normas ( @varNombreObjeto VARCHAR(255), 
+﻿CREATE FUNCTION F_Valida_Normas ( @varNombreObjeto VARCHAR(255), 
 								 @varTipoObjeto   VARCHAR(50) )
 RETURNS INT
 AS
@@ -8,7 +8,8 @@ BEGIN
 	--
 	IF( LEFT( @varNombreObjeto, 2 ) = 'P' + CHAR(95)  AND
 		SUBSTRING( @varNombreObjeto, 3, 3 ) IN ('ARQ','GEN','MKT','PRT','PVN','RSV','SYA','TMP','WEB') AND
-		SUBSTRING( @varNombreObjeto, 6, 1) = CHAR(95) )
+		SUBSTRING( @varNombreObjeto, 6, 1) = CHAR(95) AND
+		SUBSTRING( @varNombreObjeto, 7, 1) = UPPER(SUBSTRING( @varNombreObjeto, 7, 1))  )
 	BEGIN
 		SELECT @Resultado = 0
 	END
@@ -24,3 +25,4 @@ BEGIN
 	RETURN @Resultado
 	--
 END;
+
