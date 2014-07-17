@@ -3,17 +3,11 @@
 /*  se debe ejecutar:  p_validar_campos 'nombre_tabla'    */
 /* ====================================================== */
 
-CREATE PROCEDURE p_validar_campos
+ALTER PROCEDURE p_validar_campos
 
 	@varTabla VARCHAR(50)	
 AS
 BEGIN
-
-DECLARE @systipo varchar(50)
-DECLARE @campo varchar(50)
-DECLARE @tipo varchar(50)
-
-DECLARE @tipodato TABLE(systipo varchar(50), campo varchar(255))
 	
 	select sc.name 'Campos fuera de norma'
 	from sys.columns sc 
@@ -39,5 +33,18 @@ EXEC p_validar_campos 'GEN_Tabla2'
 
 EXEC p_validar_campos 'FAL_Tabla4'
 
+EXEC p_validar_campos 'alumno'
+
+EXEC p_validar_campos 'ARG_Tabla1'
+
+EXEC p_validar_campos 'ARQ_Tabla1'
+
+EXEC p_validar_campos 'GEN_alumno'
+
+EXEC p_validar_campos 'MKT_Registro'
+
 EXEC p_validar_campos 'MKT_Tabla3'
 
+EXEC p_validar_campos 'WEB_notas'
+
+	
