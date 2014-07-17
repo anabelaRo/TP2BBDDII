@@ -15,6 +15,7 @@ IF (UPPER(@varTipoObjeto) = 'T') /* TABLAS */
 								from sys.objects
 								where SUBSTRING( name, 1, 3 ) IN ('ARQ','GEN','MKT','PRT','PVN','RSV','SYA','TMP','WEB') AND
 									  SUBSTRING( name, 4, 1) = CHAR(95) ) 
+				OR SUBSTRING( name, 5, 1) = LOWER(SUBSTRING( name, 5, 1) )			  
 	END
 
 ELSE IF (UPPER(@varTipoObjeto) = 'P')  /* PROCEDIMIENTOS */
