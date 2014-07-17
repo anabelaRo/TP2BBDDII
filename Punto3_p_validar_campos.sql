@@ -2,8 +2,7 @@
 /* =================  TP FINAL PUNTO 3  ================= */
 /*  se debe ejecutar:  p_validar_campos 'nombre_tabla'    */
 /* ====================================================== */
-
-ALTER PROCEDURE p_validar_campos
+CREATE PROCEDURE p_validar_campos
 
 	@varTabla VARCHAR(50)	
 AS
