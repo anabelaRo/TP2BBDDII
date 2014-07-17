@@ -15,7 +15,7 @@
 /* =  VALIDAR VISTAS: 'V'							   == */
 /* ====================================================== */
 
-ALTER PROCEDURE p_validar_normativa
+CREATE PROCEDURE p_validar_normativa
 
 	@varTipoObjeto VARCHAR(50)	
 AS
@@ -31,14 +31,9 @@ IF (UPPER(@varTipoObjeto) = 'T') /* TABLAS */
 								SELECT name
 								from sys.objects
 								where SUBSTRING( name, 1, 3 ) IN ('ARQ','GEN','MKT','PRT','PVN','RSV','SYA','TMP','WEB') AND
-<<<<<<< HEAD
 									  SUBSTRING( name, 4, 1) = CHAR(95) ) 
-				OR SUBSTRING( name, 5, 1) = LOWER(SUBSTRING( name, 5, 1) )			  
-=======
-									  SUBSTRING( name, 4, 1) = CHAR(95) AND
-									  SUBSTRING(name,5,1) =  UPPER(SUBSTRING(name,5,1))
-									  )
->>>>>>> origin/master
+			  OR SUBSTRING( name, 5, 1) = LOWER(SUBSTRING( name, 5, 1) )			  
+									 
 	END
 
 ELSE IF (UPPER(@varTipoObjeto) = 'P')  /* PROCEDIMIENTOS */
