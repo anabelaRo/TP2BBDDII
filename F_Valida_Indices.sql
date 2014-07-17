@@ -63,7 +63,7 @@ select dbo.F_Valida_Indice ('name') as '1: no cumple | 0: cumple | -1 no existe'
 
 /* Si le pasas name ejecuta la validacion para todos */
 
-select dbo.F_Valida_Indice (name) as '1: no cumple | 0: cumple | -1 no existe' 
+select dbo.F_Valida_Indice (name) as '1: no cumple | 0: cumple | -1 no existe' , name
  from sys.indexes
  
 
